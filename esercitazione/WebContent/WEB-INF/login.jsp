@@ -47,14 +47,26 @@
 				</div>
 				<div class="mb-3">
 					<label for="exampleInputPassword1" class="form-label">Password</label>
-					<input name="password" type="password" class="form-control"
-						id="exampleInputPassword1" required>
-					Mostra password:
-					<input type="checkbox" id="showPassword" name="showPassword" value="Mostra la password">
+					<input type="password" class="form-control my-password"
+						name="password" required /> <input type="checkbox"
+						class="showPassword" />Show Password
 				</div>
-				
-				<button type="submit" class="btn btn-primary">Conferma</button>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$('.showPassword').on('change', function() {
+							var isChecked = $(this).prop('checked');
+							if (isChecked) {
+								$('.my-password').attr('type', 'text');
+							} else {
+								$('.my-password').attr('type', 'Password');
+							}
+						});
+					});
+				</script>
 			</div>
+
+			<button type="submit" class="btn btn-primary">Conferma</button>
+		</div>
 		</div>
 	</form>
 </body>
